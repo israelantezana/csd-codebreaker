@@ -5,6 +5,12 @@ describe("Codebreaker UI", () => {
     document.body.innerHTML = fs.readFileSync("codebreaker.html", "utf8");
     require("../codebreaker/presenter");
   });
+
+  afterEach(() => {
+    const resultado = document.querySelector("#resultado");
+    resultado.innerHTML = "";
+  });
+
   it("mostrar el nombre del juego", () => {
     const h1 = document.querySelector("#titulo");
     expect(h1.innerHTML).toEqual("Codebreaker");
